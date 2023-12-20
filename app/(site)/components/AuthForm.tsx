@@ -6,11 +6,11 @@ import Input from "@/app/components/inputs/Input";
 import Button from "@/app/components/Button";
 import AuthSocialButton from "./AuthSocialButton";
 
-
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { BsGithub, BsGoogle } from 'react-icons/bs';
-
+import { toast } from "react-hot-toast";
+import { error } from "console";
 
 type Variant = 'LOGIN' | 'REGISTER';
 const AuthForm = () => {
@@ -43,6 +43,8 @@ const AuthForm = () => {
 
         if (variant === 'REGISTER'){
             axios.post('/api/register', data)
+            .catch(() => toast.error('Something went wrong!'))
+            .finally(() => setIsLoading(false))
         }
 
         if (variant === 'LOGIN'){
