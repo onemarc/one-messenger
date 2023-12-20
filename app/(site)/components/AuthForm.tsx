@@ -11,6 +11,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { BsGithub, BsGoogle } from 'react-icons/bs';
 import { toast } from "react-hot-toast";
 import { error } from "console";
+import { signIn } from "next-auth/react";
 
 type Variant = 'LOGIN' | 'REGISTER';
 const AuthForm = () => {
@@ -48,7 +49,21 @@ const AuthForm = () => {
         }
 
         if (variant === 'LOGIN'){
-            // SignIn
+            signIn('credentials', {
+                ... data,
+                redirect: false
+            })
+            .then((callback) => {
+                if (callback?.error) {
+                    toast.error('Credentials are incorrect!');
+                }
+
+                if (callback?.ok && !callback?.error) {
+                    toast.success('Logged in!')
+                }
+            })
+
+            .finally(() => setIsLoading(false));
         }
     }
 
