@@ -29,7 +29,7 @@ const AuthForm = () => {
         register,
         handleSubmit,
         formState: {
-            errors
+            errors,
         }
     } = useForm<FieldValues>({
         defaultValues: {
@@ -51,7 +51,7 @@ const AuthForm = () => {
         if (variant === 'LOGIN'){
             signIn('credentials', {
                 ... data,
-                redirect: false
+                redirect: false,
             })
             .then((callback) => {
                 if (callback?.error) {
@@ -107,32 +107,32 @@ const AuthForm = () => {
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     {variant === 'REGISTER' && (
-                        <Input 
+                        <Input
                             id='name'
                             label="Name"
                             register={register}
                             errors={errors}
                             type={""}
-                            required={false}
+                            required
                             disabled={isLoading}
                         />
                     )}
-                    <Input 
+                    <Input
                         id='email'
                         label="Email address"
                         register={register}
                         errors={errors}
                         type={"email"}
-                        required={false}
+                        required
                         disabled={isLoading}
                     />
-                    <Input 
+                    <Input
                         id='password'
                         label="Password"
                         register={register}
                         errors={errors}
                         type={"password"}
-                        required={false}
+                        required
                         disabled={isLoading}
                     />
                     <div>

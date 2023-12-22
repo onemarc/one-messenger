@@ -33,9 +33,10 @@ model Account {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   userId String @db.ObjectId
   type String
+  created_at Int?
 
   provider String
-  providerACcountId String
+  providerAccountId String
 
   refresh_token String? @db.String
   access_token String? @db.String
@@ -47,7 +48,7 @@ model Account {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([provider, providerACcountId])
+  @@unique([provider, providerAccountId])
 }
 
 model Conversation {
