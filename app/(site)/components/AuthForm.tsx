@@ -10,7 +10,6 @@ import { useCallback, useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { BsGithub, BsGoogle } from 'react-icons/bs';
 import { toast } from "react-hot-toast";
-import { error } from "console";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
