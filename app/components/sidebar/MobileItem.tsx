@@ -28,8 +28,8 @@ const MobileItem: React.FC<MobileItemProps> = ({
             className={clsx(`
                 group flex gap-x-3 text-sm leading-6
                 font-semibold w-full justify-center p-4
-                text-gray-500
-                hover:text-black
+                text-orange-400
+                hover:text-orange-700
                 hover:bg-gray-100
             `,
                 active && "bg-gray-100 text-black"
