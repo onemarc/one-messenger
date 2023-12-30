@@ -1,18 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-        appDir: true,
-        swcPlugins: [
-            ["next-superjson-plugin", {}]
-        ]
+      appDir: true,
+      swcPlugins: [
+        ["next-superjson-plugin", {}]
+      ]
     },
     images: {
-        domains: [
-            "res.cloudinary.com",
-            "avatar.githubusercontent.com",
-            "lh3.googleusercontent.com"
-        ]
-    }
-}
-
-module.exports = nextConfig
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+                hostname: 'avatar.githubusercontent.com',
+                hostname: 'lh3.googleusercontent.com',
+                pathname: '**'
+            },
+      ],
+    },
+  };
+  
+  module.exports = nextConfig;
