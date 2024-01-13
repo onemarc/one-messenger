@@ -1,4 +1,4 @@
-import prisma from "@/app/libraries/prismadb";
+import prisma from "@/app/libs/prismadb";
 
 import getSession from "./getSession";
 

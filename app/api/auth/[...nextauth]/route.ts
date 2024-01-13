@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import prisma from "@/app/libraries/prismadb";
+import prisma from "@/app/libs/prismadb";
 
 import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";

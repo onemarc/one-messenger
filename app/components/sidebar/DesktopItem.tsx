@@ -23,7 +23,8 @@ const DesktopItem: React.FC<DesktopItemProps> = ({
     return (
         <li onClick={handleClick}>
             <Link href={href}
-            className={clsx('group flex gap-x-3 rounded-md p-3 text-s leading-6 font-semibold text-orange-400 hover:text-orange-700 hover:bg=gray-100',
+            className={clsx(`group flex gap-x-3 rounded-md p-3 text-sm leading-6
+                font-semibold text-orange-400 hover:text-orange-700 hover:bg=gray-100`,
                 active && 'bg-gray-100 text-black'
             )}
         >
