@@ -7,11 +7,9 @@ import Avatar from "@/app/components/Avatar";
 import { useSession } from "next-auth/react";
 import { useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import {Conversation, Message, User } from "@prisma/client";
 import { format } from "date-fns";
 import { FullConversationType } from "@/app/types";
  
-
 
 interface ConversationBoxProps {
     data: FullConversationType,
@@ -28,7 +26,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
 
     const handleClick = useCallback(() => {
         router.push(`/conversations/${data.id}`);
-    }, [data.id, router]);
+    }, [data, router]);
 
     const lastMessage = useMemo(() => {
         const messages = data.messages || [];
@@ -36,9 +34,8 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         return messages[messages.length - 1];
     }, [data.messages]);
 
-    const userEmail = useMemo(() => {
-        return session.data?.user?.email;
-    }, [session.data?.user?.email]);
+    const userEmail = useMemo(() => session.data?.user?.email,
+    [session.data?.user?.email]);
 
     const hasSeen = useMemo(() => {
         if (!lastMessage) {
@@ -51,7 +48,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
             return false;
         }
 
-        return seenArray.filter((user) => user.email === userEmail).length === 0;
+        return seenArray.filter((user) => user.email === userEmail).length !== 0;
     
     }, [userEmail, lastMessage]);
 
@@ -71,11 +68,31 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         <div
             onClick={handleClick}
             className={clsx(`
-            w-full, relative, flex, items-center, space-x-3, hover:bg-neutral-100 rounded-lg cursor-pointer transition p-2`,
-            selected ? 'bg-neutral-100' : 'bg-white'
+                w-full, relative, flex, items-center, space-x-3, hover:bg-neutral-100 rounded-lg cursor-pointer transition p-2`,
+                selected ? 'bg-neutral-100' : 'bg-white'
             )}
         >
-            <Avatar user={otherUser}/>
+            <Avatar user={otherUser} />
+            <div className="flex-1 min-w-0">
+                <div className="focus:outline-none">
+                    <div className="flex justify-between items-center mb-1">
+                        <p className="text-md font-medium text-gray-900">
+                            {data.name || otherUser.name}
+                        </p>
+                        {lastMessage?.createdAt && (
+                            <p className="text-xs text-orange-400 font-light">
+                                {format(new Date(lastMessage.createdAt), 'p')}
+                            </p>
+                        )}
+                    </div>
+                    <p 
+                        className={clsx(`truncate text-sm`,
+                            hasSeen ? 'text-gray-500' : 'text-black font-medium'    
+                        )}>
+                        {lastMessageText}
+                    </p>
+                </div>
+            </div>
         </div>
     );
 }

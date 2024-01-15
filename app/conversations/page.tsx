@@ -12,12 +12,12 @@ const Home = () => {
         <div 
             className={clsx(
                 'lg:pl-80 h-full lg:block',
-                isOpen ? 'Block' : 'hidden'
+                isOpen ? 'block' : 'hidden'
             )}
         >
             <EmptyState />
         </div>
     )
-};
+}
 
 export default Home;

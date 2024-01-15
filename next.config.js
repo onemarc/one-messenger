@@ -10,6 +10,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
+                hostname: 'assets.vercel.com',
                 hostname: 'res.cloudinary.com',
                 hostname: 'avatar.githubusercontent.com',
                 hostname: 'lh3.googleusercontent.com',
