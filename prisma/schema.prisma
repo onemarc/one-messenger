@@ -16,7 +16,7 @@ model User {
 
   image String?
   hashedPassword String?
-  createdAt DateTime @default(now())
+  createAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   conversationIds String[] @db.ObjectId
@@ -53,7 +53,7 @@ model Account {
 
 model Conversation {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  createAt DateTime @default(now())
+  createdAt DateTime @default(now())
 
   lastMessageAt DateTime @default(now())
   name String?

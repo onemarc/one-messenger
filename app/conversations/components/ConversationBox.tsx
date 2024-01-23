@@ -73,15 +73,15 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
             )}
         >
             <Avatar user={otherUser} />
-            <div className="flex-1 min-w-0 flex items-center">
+            <div className="flex-1 min-w-0">
                 <div className="focus:outline-none">
                     <div className="flex justify-between items-center mb-1">
                         <p className="text-md font-medium text-gray-900">
                             {data.name || otherUser.name}
                         </p>
-                        {lastMessage?.createAt && (
-                            <p className="text-xs text-gray-400 font-light">
-                                {format(new Date(lastMessage.createAt), 'p')}
+                        {lastMessage?.createdAt && (
+                            <p className="text-xs text-orange-400 font-light">
+                                {format(new Date(lastMessage.createdAt), 'p')}
                             </p>
                         )}
                     </div>
