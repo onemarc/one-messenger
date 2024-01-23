@@ -9,7 +9,7 @@ const getConversations = async () => {
     }
 
     try{
-        const conversation = await prisma.conversation.findMany({
+        const conversations = await prisma.conversation.findMany({
             orderBy: {
                 lastMessageAt: 'desc'
             },
@@ -19,17 +19,17 @@ const getConversations = async () => {
                 }
             },
             include: {
-                users: true,
+                user: true,
                 messages: {
                     include: {
                         sender: true,
                         seen: true
                     }
-                }
+                },
             }
         });
 
-        return conversation;
+        return conversations;
     }   catch (error: any) {
         return [];
     }

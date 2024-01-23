@@ -24,7 +24,6 @@ const getUsers = async () => {
     } catch (error: any) {
         return [];
     }
-
 };
 
 export default getUsers;

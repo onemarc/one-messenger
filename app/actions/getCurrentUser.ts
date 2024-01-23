@@ -24,7 +24,6 @@ const getCurrentUser = async () => {
     } catch (error: any) {
         return null;
     }
-
-}
+};
 
 export default getCurrentUser;

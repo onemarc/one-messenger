@@ -29,7 +29,7 @@ export async function POST(
                 data: {
                     name,
                     isGroup,
-                    users: {
+                    user: {
                         connect: [
                             ...members.map((member: { value: string }) => ({
                                 id: member.value
@@ -41,7 +41,7 @@ export async function POST(
                     }
                 },
                 include: {
-                    users: true
+                    user: true
                 }
             });
 
@@ -73,7 +73,7 @@ export async function POST(
 
         const newConversation = await prisma.conversation.create({
             data: {
-                users: {
+                user: {
                     connect: [
                         {
                             id: currentUser.id
@@ -85,7 +85,7 @@ export async function POST(
                 }
             },
             include: {
-                users: true
+                user: true
             }
         });
 
