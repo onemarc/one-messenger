@@ -5,17 +5,29 @@ const nextConfig = {
       swcPlugins: [["next-superjson-plugin", {}]]
     },
     images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'assets.vercel.com',
-                hostname: 'res.cloudinary.com',
-                hostname: 'avatar.githubusercontent.com',
-                hostname: 'lh3.googleusercontent.com',
-                pathname: '**'
-            },
-      ],
-    },
-  };
+      remotePatterns: [
+          {
+              protocol: 'https',
+              hostname: 'assets.vercel.com',
+              pathname: '**'
+          },
+          {
+              protocol: 'https',
+              hostname: 'res.cloudinary.com',
+              pathname: '**'
+          },
+          {
+              protocol: 'https',
+              hostname: 'avatar.githubusercontent.com',
+              pathname: '**'
+          },
+          {
+              protocol: 'https',
+              hostname: 'lh3.googleusercontent.com',
+              pathname: '**'
+          }
+      ]
+  }
+};
   
   module.exports = nextConfig;
