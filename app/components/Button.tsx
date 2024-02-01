@@ -13,13 +13,13 @@ interface ButtonProps{
 }
 
 const Button: React.FC<ButtonProps> = ({
-    type,
+    type = "button",
     fullWidth,
     children,
     onClick,
     secondary,
     danger,
-    disabled
+    disabled,
 }) => {
     return (
         <button
@@ -44,7 +44,6 @@ const Button: React.FC<ButtonProps> = ({
             danger && "bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600",
             !secondary && !danger && "bg-orange-500 hover:bg-orange-600 focus-visible:outline-orange-600"
             )}
-
         >
             {children}
         </button>
