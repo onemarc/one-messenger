@@ -56,7 +56,9 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
                     </Dialog.Title>
                     <div className="mt-2">
                         <p className="text-sm text-gray-500 ">
-                            Are you sure you want to delete this conversation? This action cannot be undone after deletion.
+                            Are you sure you want to delete this conversation?
+                            <br/>
+                            This action cannot be undone after deletion.
                         </p>
                     </div>
                 </div>

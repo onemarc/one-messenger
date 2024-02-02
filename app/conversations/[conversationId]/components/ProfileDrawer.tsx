@@ -117,7 +117,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                                                             sm:w-40
                                                                             sm:flex-shrink-0"
                                                                     >
-                                                                        Email
+                                                                        Email 📧
                                                                     </dt>
                                                                     <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
                                                                         {otherUser.email}
@@ -136,7 +136,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                                                                 sm:w-40
                                                                                 sm:flex-shrink-0"
                                                                         >
-                                                                            Joined
+                                                                            Joined 🗓️
                                                                         </dt>
                                                                         <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
                                                                             <time dateTime={joinedDate}>
