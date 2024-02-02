@@ -36,12 +36,12 @@ const Header: React.FC<HeaderProps> = ({
                 isOpen={drawerOpen}
                 onClose={() => setDrawerOpen(false)}
             />
-            <div className="bg-white w-full boderde-b-[1px] sm:px-4 py-3
+            <div className="bg-white w-full border-b-[1px] sm:px-4 py-3
                 px-4 lg:px-6 justify-between items-center shadow-sm"
             >
                 <div className="flex gap-3 items-center">
                     <Link 
-                        href="/conversation"
+                        href="/conversations"
                         className="lg:hidden block text-orange-500 hover:text-orange-600 transition cursor-pointer"
                     >
                         <HiChevronLeft size={32}/>
