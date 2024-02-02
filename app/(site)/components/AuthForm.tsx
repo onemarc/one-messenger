@@ -196,7 +196,7 @@ const AuthForm = () => {
                         text-gray-500
                     ">
                         <div>
-                            {variant === 'LOGIN' ? 'New to OneMessenger?' : 'Already have an account?'}
+                            {variant === 'LOGIN' ? 'New to One Messenger?' : 'Already have an account?'}
                         </div>
                         <div
                             onClick={toggleVariant}
