@@ -45,8 +45,8 @@ const Header: React.FC<HeaderProps> = ({
                         className="lg:hidden block text-orange-500 hover:text-orange-600 transition cursor-pointer"
                     >
                         <HiChevronLeft size={32}/>
-                    </ Link>
-                    <Avatar user={useOtherUser}/>
+                    </Link>
+                    <Avatar user={otherUser}/>
                     <div className="flex flex-col">
                         <div>
                             {conversation.name || otherUser.name}
