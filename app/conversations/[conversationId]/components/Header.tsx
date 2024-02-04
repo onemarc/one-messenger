@@ -1,6 +1,7 @@
 'use client';
 
 import Avatar from "@/app/components/Avatar";
+import AvatarGroup from "@/app/components/AvatarGroup";
 import useOtherUser from "@/app/hooks/useOtherUser";
 import Link from "next/link";
 import ProfileDrawer from "./ProfileDrawer";
@@ -36,7 +37,8 @@ const Header: React.FC<HeaderProps> = ({
                 isOpen={drawerOpen}
                 onClose={() => setDrawerOpen(false)}
             />
-            <div className="bg-white w-full border-b-[1px] sm:px-4 py-3
+            <div className="
+                bg-white w-full border-b-[1px] sm:px-4 py-3
                 px-4 lg:px-6 justify-between items-center shadow-sm"
             >
                 <div className="flex gap-3 items-center">
@@ -46,7 +48,11 @@ const Header: React.FC<HeaderProps> = ({
                     >
                         <HiChevronLeft size={32}/>
                     </Link>
-                    <Avatar user={otherUser}/>
+                    {conversation.isGroup ? (
+                        <AvatarGroup user={conversation.user} />
+                    ) : (
+                        <Avatar user={otherUser} />
+                    )}
                     <div className="flex flex-col">
                         <div>
                             {conversation.name || otherUser.name}
