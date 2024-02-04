@@ -14,7 +14,7 @@ interface ProfileDrawerProps {
     isOpen: boolean;
     onClose: () => void;
     data: Conversation & {
-        users: User[]
+        user: User[]
     }
 }
 
@@ -36,7 +36,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
 
     const statusText = useMemo(() => {
         if (data.isGroup) {
-            return `${data.users.length} members`;
+            return `${data.user.length} members`;
         }
 
         return 'Active';
