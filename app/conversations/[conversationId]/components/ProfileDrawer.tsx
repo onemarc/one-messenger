@@ -22,10 +22,10 @@ interface ProfileDrawerProps {
 const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
     isOpen,
     onClose,
-    data
+    data,
 }) => {
-    const otherUser = useOtherUser(data);
     const [confirmOpen, setConfirmOpen] = useState(false);
+    const otherUser = useOtherUser(data);
 
     const joinedDate = useMemo(() => {
         return format(new Date(otherUser.createAt), 'PP');
@@ -64,7 +64,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                     </Transition.Child>
                     <div className="fixed inset-0 overflow-hidden">
                         <div className="absolute inset-0 overflow-hidden">
-                            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-2-full pl-10">
+                            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
                                 <Transition.Child
                                     as={Fragment} 
                                     enter="transform transition ease-in-out duration-500" 
@@ -90,7 +90,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                                                 focus:ring-offset-2"
                                                         >
                                                             <span className="sr-only">Close panel</span>
-                                                            <IoClose size={24} />
+                                                            <IoClose size={24} aria-hidden="true" />
                                                         </button>
                                                     </div>
                                                 </div>
@@ -110,7 +110,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                                     <div className="text-sm text-gray-500">
                                                         {statusText}
                                                     </div>
-                                                    <div className="w-full bp-5 bt-5 sm:px-0 sm:pt-0">
+                                                    <div className="w-full pb-5 pt-5 sm:px-0 sm:pt-0">
                                                         <dl className="space-y-8 px-4 sm:space-y-6 sm:px-6">
                                                             {data.isGroup && (
                                                                 <div>
@@ -119,7 +119,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                                                         font-medium
                                                                         text-gray-500
                                                                         sm:w-40
-                                                                        sm:flex-shrink-0 "
+                                                                        sm:flex-shrink-0"
                                                                     >
                                                                         Emails 📧
                                                                     </dt>
