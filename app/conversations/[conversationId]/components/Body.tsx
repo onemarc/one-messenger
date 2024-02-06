@@ -28,6 +28,7 @@ const Body: React.FC<BodyProps> = ({
 
     useEffect(() => {
         pusherClient.subscribe(conversationId);
+        bottomRef?.current?.scrollIntoView();
     }, [conversationId]);
     
     return (
