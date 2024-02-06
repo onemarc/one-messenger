@@ -6,6 +6,7 @@ import axios from "axios";
 
 import { FullMessageType } from "@/app/types";
 import { useEffect, useRef, useState } from "react";
+import { pusherClient } from "@/app/libs/pusher";
 
 interface BodyProps {
     initialMessages: FullMessageType[]
@@ -23,6 +24,10 @@ const Body: React.FC<BodyProps> = ({
 
     useEffect(() => {
         axios.post(`/api/conversations/${conversationId}/seen`)
+    }, [conversationId]);
+
+    useEffect(() => {
+        pusherClient.subscribe(conversationId);
     }, [conversationId]);
     
     return (
